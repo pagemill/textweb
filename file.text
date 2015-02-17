@@ -1,0 +1,24 @@
+first checkin
+
+export git_branch=`git branch | sed -n '/\* /s///p'`
+
+***** REL-branch-create
+
+req: a git revistion num to cut off into REL_1.1.0
+
+git http:s//// with git branch #
+git checkout -b REL_1.1.0
+git push origin REL_1.1.0
+git branch -v  (just to comfirm still in this branch)
+
+***** REL-singleNode
+release build from that branch 1.1.0
+QA-> Dev fix bug by checking to REL_1.1.0
+until satisfy 1.1.9
+
+***** REL-close
+
+git http:s//// with git branch #
+
+git branch -d REL_1.1.0
+git push origin :REL_1.1.0
